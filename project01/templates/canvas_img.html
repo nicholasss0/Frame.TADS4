@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem Deslocável</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mova a Imagem no Canvas</h1>
+    <canvas id="imageCanvas" width="600" height="400"></canvas>
+    <div class="controls">
+        <button onclick="moveLeft()">Mover para a Esquerda</button>
+        <button onclick="moveRight()">Mover para a Direita</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('imageCanvas');
+        const ctx = canvas.getContext('2d');
+        let img = new Image();
+        let imgX = 0;
+
+        // Carregar a imagem
+        img.src = 'https://via.placeholder.com/300';  // Exemplo de URL para uma imagem
+        img.onload = function() {
+            ctx.drawImage(img, imgX, 0);
+        };
+
+        // Funções para mover a imagem
+        function moveLeft() {
+            imgX -= 10; // Ajusta a posição para a esquerda
+            redrawImage();
+        }
+
+        function moveRight() {
+            imgX += 10; // Ajusta a posição para a direita
+            redrawImage();
+        }
+
+        function redrawImage() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+            ctx.drawImage(img, imgX, 0); // Desenha a imagem na nova posição
+        }
+    </script>
+</body>
+</html>
