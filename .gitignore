@@ -1,0 +1,25 @@
+# Ignorar arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar pastas de dependências
+node_modules/
+.venv/
+
+# Ignorar arquivos de compilação
+*.class
+*.o
+*.so
+
+# Ignorar logs e arquivos temporários
+*.log
+*.tmp
+
+# Ignorar arquivos de configuração local
+.env
+settings_local.py
+
+# Ignorar arquivos gerados por IDEs
+.vscode/
+.idea/
+*.iml
