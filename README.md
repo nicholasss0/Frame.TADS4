@@ -31,7 +31,6 @@ Este repositório tem como propósito principal:
    - Descrição: Gerar uma página HTML estilizada que possui um bloco canvas com uma imagem. O usuário poderá movê-la para onde quiser dentro de um espaço 2D e com quatro botões, dois para o eixo X e um para o eixo Y.
    - Tecnologias utilizadas: HTML, FLASK-app, Javascript e Tailwind
 
-[Adicione aqui outros projetos à medida que forem desenvolvidos.]
 
 ---
 
