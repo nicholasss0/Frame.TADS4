@@ -9,8 +9,11 @@ def start():
     if request.method == "POST":
         selection = request.form.get("selection")
 
+    
         if selection == "toTagCanvas":
             return redirect(url_for("tagCanvas"))
+        if selection == "toTakePhoto":
+            return redirect(url_for("takePhoto"))
         else:
             return '''<script>
                     window.alert("faça sua escolha!")
@@ -21,6 +24,11 @@ def start():
 @app.route('/tagCanvas')
 def tagCanvas():
     return render_template("tagCanvas.html")
+
+
+@app.route('/takePhoto')
+def takePhoto():
+    return render_template("takePhoto.html")
 
 
 if "__main__" == __name__:

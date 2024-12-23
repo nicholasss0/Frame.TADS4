@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirar Selfie</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        video, canvas{
+            border: 1px solid black;
+            border-radius: .5rem;
+            margin: 10px;
+
+
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Tire uma foto!</h1>
+
+    <video id="video" width="800" height="400" autoplay></video>
+    <br>
+    <button id="takePhoto">Tirar foto</button>
+    <canvas id="canvas" width="800" height="400"></canvas>
+
+    <script src="/static/takePhoto.js"></script>
+
+</body>
+</html>
