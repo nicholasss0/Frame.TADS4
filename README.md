@@ -29,9 +29,17 @@ Este repositório tem como propósito principal:
 
 1. **Tag Canvas**  
    - Descrição: Gerar uma página HTML estilizada que possui um bloco canvas com uma imagem. O usuário poderá movê-la para onde quiser dentro de um espaço 2D e com quatro botões, dois para o eixo X e um para o eixo Y.
-   - Tecnologias utilizadas: HTML, FLASK-app, Javascript e Tailwind
+   - Tecnologias utilizadas: HTML, FLASK-app, Javascript 
 
+2. **take Photo** 
+  - Descrição: Gerar um front-end que abra a camera do dispositivo e tire uma foto com ela e apresente a 
+  foto em uma tag canvas
+  - Tecnologias utilizadas: HTML, FLASK-router, Javascript
 
+3. **997 linhas**
+  - Descrição: Gerar uma página HTML que apresente uma lista de contatod com 997 linhas iniciais, com possibilidade de ser 
+  complementada com o tempo.
+  Tecnologias utilizadas: HTML e FLASK-app
 ---
 
 ## 📖 Próximos Passos
