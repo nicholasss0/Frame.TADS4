@@ -14,6 +14,11 @@ navigator.mediaDevices.getUserMedia({ video: true })
     });
 
 Btn.addEventListener("click", () => {
-    context.drawImage(video, 0, 0, canvas.width, canvas.height)
+    canvas.width = video.videoWidth; 
+    canvas.height = video.videoHeight;
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
+    
 })
+
+

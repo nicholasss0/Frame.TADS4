@@ -14,6 +14,8 @@ def start():
             return redirect(url_for("tagCanvas"))
         if selection == "toTakePhoto":
             return redirect(url_for("takePhoto"))
+        if selection == "toGreatTable":
+            return redirect(url_for("greatTable"))
         else:
             return '''<script>
                     window.alert("faça sua escolha!")
@@ -29,6 +31,27 @@ def tagCanvas():
 @app.route('/takePhoto')
 def takePhoto():
     return render_template("takePhoto.html")
+
+
+@app.route('/greatTable', methods = ["GET", "POST"])
+def greatTable():
+    # fazer os botões editar e excluir funconarem
+    if request.method == "POST":
+        pass
+    tables = generateTables()
+    return render_template("997lines.html", tables=tables)
+
+
+def generateTables():
+    rows = []
+    for i in range(1, 997):
+        rows.append({
+            "id": i,
+            "first_name": "João",
+            "last_name": "Silva",
+            "email": "joao.silva@example.com",
+        })
+    return rows
 
 
 if "__main__" == __name__:

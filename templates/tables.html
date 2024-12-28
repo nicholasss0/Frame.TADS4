@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .table {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr 1fr;
+      gap: 10px;
+      border: 1px solid #ccc;
+    }
+    .row {
+      display: contents;
+    }
+    .cell {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+    .header {
+      font-weight: bold;
+      background-color: #ddd;
+    }
+    .actions button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .actions button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom Table without Table Tags</h1>
+  <div class="table">
+    <!-- Header -->
+    <div class="cell header">Nome</div>
+    <div class="cell header">Sobrenome</div>
+    <div class="cell header">Email</div>
+    <div class="cell header">Ações</div>
+
+    <!-- Data Rows -->
+    <div class="row">
+      <div class="cell">João</div>
+      <div class="cell">Silva</div>
+      <div class="cell">joao.silva@example.com</div>
+      <div class="cell actions">
+        <button>Editar</button>
+        <button>Excluir</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cell">Maria</div>
+      <div class="cell">Souza</div>
+      <div class="cell">maria.souza@example.com</div>
+      <div class="cell actions">
+        <button>Editar</button>
+        <button>Excluir</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cell">Carlos</div>
+      <div class="cell">Pereira</div>
+      <div class="cell">carlos.pereira@example.com</div>
+      <div class="cell actions">
+        <button>Editar</button>
+        <button>Excluir</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela Grande</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+        gap: 10px;
+      }
+      .row {
+        display: contents;
+       }
+       
+      .cell {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        background-color: #f9f9f9;
+      }
+      .header {
+        font-weight: bold;
+        background-color: #ddd;
+      }
+      .actions button {
+        margin: 0 5px;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .actions button:hover {
+        transition: .8s;
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Criação de Tabela</h1>
+
+    <div class="container">
+      <div class="header">ID</div>
+      <div class="header">Nome</div>
+      <div class="header">Sobrenome</div>
+      <div class="header">e-mail</div>
+      <div class="header">ações</div>
+
+      {% for row in tables %}
+      <div class="row">
+        <div class="cell">{{ row.id }}</div>
+        <div class="cell">{{ row.first_name }}</div>
+        <div class="cell">{{ row.last_name }}</div>
+        <div class="cell">{{ row.email }}</div>
+        <div class="cell actions">
+          <button name="selection" value="edit">Editar</button>
+          <button name="selection" value="delete">Excluir</button>
+        </div>
+      </div>
+      {% endfor %}
+      
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
