@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 
 MOCKED_USER = "admin"
-MOCKED_PASSWORD = 1234
+MOCKED_PASSWORD = "1234"
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -47,10 +47,12 @@ def greatTable():
     return render_template("997lines.html", tables=tables)
 
 
-
 @app.route('/authLogin', methods = ["GET", "POST"])
 def authLogin():
-    message=""
+
+    global MOCKED_USER
+    global MOCKED_PASSWORD
+    message="Insira seu usuário e senha"
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -58,8 +60,7 @@ def authLogin():
 
         if username == MOCKED_USER and password == MOCKED_PASSWORD:
             message = f"Bem vindo {MOCKED_USER}"
-        elif username == "" or password == "":
-            message = "Usuário e senha são obrigatórios"
+
         else:
             message = "Usuário ou senha não confere"
 
