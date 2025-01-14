@@ -1,27 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem Vindo</title>
+
+    <style>
+        /* Estilo global */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container principal */
+
+        .container {
+
+            display: grid;
+            grid-template-rows: 1fr auto;
+        }
+        form {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Título principal */
+        .tittle {
+            color: #333;
+            margin: 20px 30px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Subtítulos */
+        .subtittle {
+            display: block;
+            font-size: 16px;
+            color: #555;
+            margin: 15px 0 5px;
+        }
+
+        /* Botões */
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Ajuste para dispositivos menores */
+        @media (max-width: 768px) {
+            form {
+                padding: 15px 20px;
+            }
+
+            .tittle {
+                font-size: 20px;
+            }
+
+            .subtittle {
+                font-size: 14px;
+            }
+
+            .button {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+        }
+    </style>
+
 </head>
 <body>
-    <h1 class="tittle">Meu portifólio flask
-    </h1>
 
-    <form method="post">
+    <div class="container">
 
-        <label for="button" class="subtittle">Uma rota com uma tag Canvas que move uma imagem da direita para a esquerda</label>
-        <button class="button" name="selection" value="toTagCanvas">Entrar</button>
-        <br>
-        <label for="button" class="subtittle">Uma página html onde voce pode tirar fotos</label>
-        <button class="button" name="selection" value="toTakePhoto">Entrar</button>
-        <br>
-        <label for="button" class="subtittle">Uma tabela um pouco grande</label>
-        <button class="button" name="selection" value="toGreatTable">Entrar</button>
+        <h1 class="tittle">Meu portifólio flask
+        </h1>
+    
+        <form method="post">
+    
+            <h2 class="subtittle"> Atividades semana 1</h2>
+            <label for="button" class="subtittle">Uma rota com uma tag Canvas que move uma imagem da direita para a esquerda</label>
+            <button class="button" name="selection" value="toTagCanvas">Entrar</button>
+            <br>
+            <label for="button" class="subtittle">Uma página html onde voce pode tirar fotos</label>
+            <button class="button" name="selection" value="toTakePhoto">Entrar</button>
+            <br>
+            <label for="button" class="subtittle">Uma tabela um pouco grande</label>
+            <button class="button" name="selection" value="toGreatTable">Entrar</button>
 
-    </form>
+            <h2 class="subtittle"> Atividades semana 2</h2>
+            <label for="button" class="subtittle">Uma sessão de autenticação simples até demais</label>
+            <button class="button" name="selection" value="authLogin">Entrar</button>
+            
+    
+        </form>
 
-    <!-- Atividade desconsiderada: 5. crie 6 rotas onde cada um envie o currículo de um integrante do grupo -->
+    </div>
+
 </body>
 </html>

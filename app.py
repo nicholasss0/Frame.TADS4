@@ -3,25 +3,30 @@ from flask import Flask, redirect, render_template, request, url_for
 app = Flask(__name__)
 
 
+MOCKED_USER = "admin"
+MOCKED_PASSWORD = 1234
+
+
 @app.route('/', methods=["GET", "POST"])
 def start():
 
     if request.method == "POST":
         selection = request.form.get("selection")
 
-    
         if selection == "toTagCanvas":
             return redirect(url_for("tagCanvas"))
         if selection == "toTakePhoto":
             return redirect(url_for("takePhoto"))
         if selection == "toGreatTable":
             return redirect(url_for("greatTable"))
+        if selection == "authLogin":
+            return redirect(url_for("authLogin"))
         else:
             return '''<script>
                     window.alert("faça sua escolha!")
                 </script>'''
              
-    return render_template("start.html")
+    return render_template("start.html" )
 
 @app.route('/tagCanvas')
 def tagCanvas():
@@ -41,6 +46,24 @@ def greatTable():
     tables = generateTables()
     return render_template("997lines.html", tables=tables)
 
+
+
+@app.route('/authLogin', methods = ["GET", "POST"])
+def authLogin():
+    message=""
+
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        if username == MOCKED_USER and password == MOCKED_PASSWORD:
+            message = f"Bem vindo {MOCKED_USER}"
+        elif username == "" or password == "":
+            message = "Usuário e senha são obrigatórios"
+        else:
+            message = "Usuário ou senha não confere"
+
+    return render_template("authLogin.html", message=message)
 
 def generateTables():
     rows = []
