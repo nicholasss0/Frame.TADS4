@@ -7,7 +7,7 @@
 # Atividade da Aula 2
 
 0. 
-    1. crie uma rota para uma pag web, com uma tag canvas, que permite ao usuário deslocar uma fotografia para a diretia e para a esquerda
+    1. crie uma rota para uma pag web, com uma tag canvas, que permite ao usuário deslocar uma fotografia para a direita e para a esquerda
 
     2. crie uma rota que permita ao usuário capturar uma fotografia da webcam
 

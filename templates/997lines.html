@@ -59,8 +59,27 @@
         <div class="cell">{{ row.last_name }}</div>
         <div class="cell">{{ row.email }}</div>
         <div class="cell actions">
-          <button name="selection" value="edit">Editar</button>
-          <button name="selection" value="delete">Excluir</button>
+          <!-- O botão de editar não funciona como deveria -->
+          <a href="#"
+            onclick="openEditModal('{{ row.first_name }}', '{{ row.last_name }}', '{{ row.email }}')">Editar</a>
+          <a href="{{ url_for('delete', id=row.id ) }}"> Excluir </a>
+
+        <div id="editModal" class="modal" style="display: none">
+          <form method="POST" action="/edit/{{ row.id }}">
+            <!-- <input type="hidden" name="id" id="modal_id"> -->
+            <label for="modal_first_name">Primeiro Nome:</label>
+            <input type="text" name="first_name" id="modal_first_name" required>
+        
+            <label for="modal_last_name">Último Nome:</label>
+            <input type="text" name="last_name" id="modal_last_name" required>
+        
+            <label for="modal_email">E-mail:</label>
+            <input type="email" name="email" id="modal_email" required>
+        
+            <button type="submit">Salvar</button>
+            <button type="button" onclick="closeEditModal()">Cancelar</button>
+          </form>
+        </div>
         </div>
       </div>
       {% endfor %}
@@ -68,5 +87,27 @@
         </div>
       </div>
     </div>
+    <script>
+      function openEditModal(firstName, lastName, email) {
+          // Preenche os campos do modal com os valores recebidos
+          // document.getElementById('modal_id').value = id;
+          document.getElementById('modal_first_name').value = firstName;
+          document.getElementById('modal_last_name').value = lastName;
+          document.getElementById('modal_email').value = email;
+
+
+
+          // Exibe o modal
+          document.getElementById('editModal').style.display = 'block';
+        }
+
+        function closeEditModal() {
+          // Fecha o modal
+          document.getElementById('editModal').style.display = 'none';
+        }
+
+
+    </script>
+
   </body>
 </html>

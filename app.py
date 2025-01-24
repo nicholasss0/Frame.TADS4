@@ -7,6 +7,21 @@ MOCKED_USER = "admin"
 MOCKED_PASSWORD = "1234"
 
 
+def generateTables():
+    rows = []
+    for i in range(1, 997):
+        rows.append({
+            "id": i,
+            "first_name": "João",
+            "last_name": "Silva",
+            "email": "joao.silva@example.com",
+        })
+    return rows
+
+tables = generateTables()
+
+
+
 @app.route('/', methods=["GET", "POST"])
 def start():
 
@@ -40,11 +55,34 @@ def takePhoto():
 
 @app.route('/greatTable', methods = ["GET", "POST"])
 def greatTable():
-    # fazer os botões editar e excluir funconarem
-    if request.method == "POST":
-        pass
-    tables = generateTables()
     return render_template("997lines.html", tables=tables)
+
+
+@app.route('/edit/<int:id>', methods=['POST'])
+def edit(id):
+    table = next((t for t in tables if t['id'] == id), None)
+    if table:
+        table.update({
+            'first_name': request.form['first_name'],
+            'last_name': request.form['last_name'],
+            'email': request.form['email']
+        })
+    return redirect(url_for('greatTable'))
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    global tables
+
+    filtered_tables = []
+
+    for table in tables:
+        if table['id'] != id:
+            filtered_tables.append(table)
+    tables = filtered_tables
+
+    return redirect(url_for('greatTable'))
+
+
 
 
 @app.route('/authLogin', methods = ["GET", "POST"])
@@ -60,22 +98,14 @@ def authLogin():
 
         if username == MOCKED_USER and password == MOCKED_PASSWORD:
             message = f"Bem vindo {MOCKED_USER}"
+            
 
         else:
             message = "Usuário ou senha não confere"
 
     return render_template("authLogin.html", message=message)
 
-def generateTables():
-    rows = []
-    for i in range(1, 997):
-        rows.append({
-            "id": i,
-            "first_name": "João",
-            "last_name": "Silva",
-            "email": "joao.silva@example.com",
-        })
-    return rows
+
 
 
 if "__main__" == __name__:
