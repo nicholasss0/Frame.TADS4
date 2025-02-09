@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Dinâmico</title>
+</head>
+
+<body>
+    <h1 id="titulo">Carregando...</h1>
+    <form id="formulario"></form>
+
+    <script>
+        // Busca o JSON da rota Flask
+        fetch("/jsonData")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("titulo").innerText = data.titulo;
+                const form = document.getElementById("formulario");
+
+                // Percorre os campos do JSON e adiciona ao formulário
+                data.campos.forEach(campo => {
+                    const label = document.createElement("label");
+                    label.setAttribute("for", campo.name);
+                    label.innerText = campo.label + ": ";
+
+                    const input = document.createElement("input");
+                    input.setAttribute("type", campo.type);
+                    input.setAttribute("id", campo.name);
+                    input.setAttribute("name", campo.name);
+
+                    form.appendChild(label);
+                    form.appendChild(input);
+                    form.appendChild(document.createElement("br"));
+                });
+
+                // Botão de envio
+                const button = document.createElement("button");
+                button.setAttribute("type", "submit");
+                button.innerText = "Enviar";
+                form.appendChild(button);
+            })
+            .catch(error => console.error("Erro ao carregar o formulário:", error));
+    </script>
+</body>
+
+</html>

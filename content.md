@@ -23,15 +23,15 @@
 
     1. considerando um usuário e uma senha mocados faça uma página de autenticaçao que retorne a mesangem olá "nome" se tudo funcionar, ou "usuário ou senha não confere"; feito
 
-    2. Limite as tentativas de autenticação do usuário da questão 1 em duas vezes
+    2. Limite as tentativas de autenticação do usuário da questão 1 em duas vezes; feito
 
-    3. Estilizar de forma bonita as paginas criadas
+    3. Estilizar de forma bonita as paginas criadas; feito
 
-    4. Escreva um script python que gere automaticamente um template html contendo um formulário de input de dados com campos que serão recebidos atravez de um payload de JSON
+    4. Escreva um script python que gere automaticamente um template html contendo um formulário de input de dados com campos que serão recebidos atravez de um payload de JSON; feito
 
-    5. Incremente o script python da questão 4 para que após gerar o template, ele construa automaticamente uma rota que permita visualizar o template. 
+    5. Incremente o script python da questão 4 para que após gerar o template, ele construa automaticamente uma rota que permita visualizar o template. feito
 
-    6. Crie uma classe python que encapsula dados de usuário, de uma pessoa, e desenvolva uma função de autenticação que faça as devidas validações
+    6. Crie uma classe python que encapsula dados de usuário, de uma pessoa, e desenvolva uma função de autenticação que faça as devidas validações; feito
 
 # Aula 4
 
@@ -46,7 +46,7 @@
 
 0. 
 
-    1. fazer, no código, todas as validações necessárias para que as senha e ususario sejam devidamente preenchiddos
+    1. fazer, no código, todas as validações necessárias para que as senha e usuario sejam devidamente preenchiddos
     2. tratar excessões para evitar que seja exibida a mensagem "method not allowed"
     3. Garantir que usuário seja redirecionado e tentar autenticar novamente caso a senha e o user estejam incorretos
     4. limitar em duas tentativas

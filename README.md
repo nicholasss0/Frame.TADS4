@@ -45,6 +45,9 @@ Este repositório tem como propósito principal:
   - Descrição: considerando um usuário e uma senha mocados faça uma página de autenticaçao que retorne a mesangem olá "nome" se tudo funcionar, ou "usuário ou senha não confere".
   Tecnologias utilizadas: HTML, FLASK-app e FLASK-router
 
+5. **Limitar Tentativas**
+  - Descrição: Limitar as tentativas de autenticação a 4 tentativas tentativas.
+
 ---
 
 ## 📖 Próximos Passos

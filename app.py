@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, redirect, render_template, request, session, url_for, jsonify
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  
@@ -22,9 +22,6 @@ def generateTables():
 tables = generateTables()
 
 
-
-
-
 @app.route('/', methods=["GET", "POST"])
 def start():
 
@@ -39,6 +36,8 @@ def start():
             return redirect(url_for("greatTable"))
         if selection == "authLogin":
             return redirect(url_for("authLogin"))
+        if selection == "inputData":
+            return redirect(url_for("inputData"))
         else:
             return '''<script>
                     window.alert("faça sua escolha!")
@@ -112,6 +111,25 @@ def authLogin():
                 message = "Usuário ou senha não confere. Você ainda tem mais {session['attempts']} tentativas"
 
     return render_template("authLogin.html", message=message)
+
+
+@app.route('/jsonData')
+def jsonData():
+    data = {
+        "titulo": "Cadastro",
+        "campos": [
+            {"label": "Nome", "type": "text", "name": "nome"},
+            {"label": "Idade", "type": "number", "name": "idade"},
+            {"label": "E-mail", "type": "email", "name": "email"}
+        ]
+    }
+
+    return jsonify(data)
+
+@app.route('/inputData', methods=["GET", "POST"])
+def inputData():
+    return render_template("inputData.html")
+
 
 
 if "__main__" == __name__:
