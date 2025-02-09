@@ -40,6 +40,11 @@ Este repositório tem como propósito principal:
   - Descrição: Gerar uma página HTML que apresente uma lista de contatod com 997 linhas iniciais, com possibilidade de ser 
   complementada com o tempo.
   Tecnologias utilizadas: HTML e FLASK-app
+
+4. **Atentição Login**
+  - Descrição: considerando um usuário e uma senha mocados faça uma página de autenticaçao que retorne a mesangem olá "nome" se tudo funcionar, ou "usuário ou senha não confere".
+  Tecnologias utilizadas: HTML, FLASK-app e FLASK-router
+
 ---
 
 ## 📖 Próximos Passos

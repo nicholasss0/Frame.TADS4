@@ -7,13 +7,13 @@
 # Atividade da Aula 2
 
 0. 
-    1. crie uma rota para uma pag web, com uma tag canvas, que permite ao usuário deslocar uma fotografia para a direita e para a esquerda
+    1. crie uma rota para uma pag web, com uma tag canvas, que permite ao usuário deslocar uma fotografia para a direita e para a esquerda; feito
 
-    2. crie uma rota que permita ao usuário capturar uma fotografia da webcam
+    2. crie uma rota que permita ao usuário capturar uma fotografia da webcam; feito
 
-    3. crie uma rota com uma página web sem table que exiba uma tabela com 997 linhas e 5 colunas, com ID,  nome, sobrenome, e-mail, ações
+    3. crie uma rota com uma página web sem table que exiba uma tabela com 997 linhas e 5 colunas, com ID,  nome, sobrenome, e-mail e ações; feito
 
-    4. criar uma rota com tres links, uma para cada atividade acima, de forma bem estilizadas
+    4. criar uma rota com tres links, uma para cada atividade acima, de forma bem estilizadas; feito
 
 
 
@@ -21,7 +21,7 @@
 
 0. 
 
-    1. considerando um usuário e uma senha mocados faça uma página de autenticaçao que retorne a mesangem olá "nome" se tudo funcionar, ou "usuário ou senha não confere"
+    1. considerando um usuário e uma senha mocados faça uma página de autenticaçao que retorne a mesangem olá "nome" se tudo funcionar, ou "usuário ou senha não confere"; feito
 
     2. Limite as tentativas de autenticação do usuário da questão 1 em duas vezes
 
@@ -90,7 +90,7 @@ Funcionalidades:
 - Utilização de templates para formatar a página.
 - Retornar mensagens de sucesso ou falha na autenticação.
 
-Dicas:
+Dicas: 
 - Utilizar lista para armazenar as tentativas de autenticação.
 - Usar o módulo datetime para registrar a data e hora de login.
 - Criar um template básico com HTML e CSS para estilizar a página.

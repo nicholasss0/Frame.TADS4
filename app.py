@@ -1,10 +1,11 @@
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request, session, url_for
 
 app = Flask(__name__)
-
+app.secret_key = "supersecretkey"  
 
 MOCKED_USER = "admin"
 MOCKED_PASSWORD = "1234"
+MAX_ATTEMPTS = 4
 
 
 def generateTables():
@@ -19,6 +20,8 @@ def generateTables():
     return rows
 
 tables = generateTables()
+
+
 
 
 
@@ -83,29 +86,32 @@ def delete(id):
     return redirect(url_for('greatTable'))
 
 
-
-
-@app.route('/authLogin', methods = ["GET", "POST"])
+@app.route('/authLogin', methods=["GET", "POST"])
 def authLogin():
+    if 'attempts' not in session:
+        session['attempts'] = 0
+        return render_template("authLogin.html", message=f"Você ainda tem mais {session['attempts']} tentativas")
 
-    global MOCKED_USER
-    global MOCKED_PASSWORD
-    message="Insira seu usuário e senha"
+    message = "Insira seu usuário e senha"
+
+    if session['attempts'] >= MAX_ATTEMPTS:
+        return render_template("authLogin.html", message="Você excedeu o número de tentativas. Tente novamente mais tarde.")
 
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
 
         if username == MOCKED_USER and password == MOCKED_PASSWORD:
-            message = f"Bem vindo {MOCKED_USER}"
-            
-
+            session.pop('attempts', None)  # Reseta as tentativas após sucesso
+            message = f"Bem-vindo {MOCKED_USER}"
         else:
-            message = "Usuário ou senha não confere"
+            session['attempts'] += 1
+            if session['attempts'] >= MAX_ATTEMPTS:
+                message = "Você excedeu o número de tentativas. Tente novamente mais tarde."
+            else:
+                message = "Usuário ou senha não confere. Você ainda tem mais {session['attempts']} tentativas"
 
     return render_template("authLogin.html", message=message)
-
-
 
 
 if "__main__" == __name__:
