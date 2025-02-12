@@ -1,11 +1,14 @@
 from flask import Flask, redirect, render_template, request, session, url_for, jsonify
 
-app = Flask(__name__)
-app.secret_key = "supersecretkey"  
+from user import User, verify_login
 
-MOCKED_USER = "admin"
-MOCKED_PASSWORD = "1234"
-MAX_ATTEMPTS = 4
+app = Flask(__name__)
+app.secret_key = "supersecretkey" 
+app.config["SESSION_PERMANENT"] = False
+
+
+admin = User("admin", "admin@email", "1234")
+MAX_ATTEMPTS = 2
 
 
 def generateTables():
@@ -85,11 +88,25 @@ def delete(id):
     return redirect(url_for('greatTable'))
 
 
+@app.route('/addUser', methods=["GET", "POST"])
+def addUser():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        if name and email and password:
+            User(name, email, password)  
+            return redirect(url_for('authLogin'))
+
+    return render_template("addUser.html")
+
+
 @app.route('/authLogin', methods=["GET", "POST"])
 def authLogin():
     if 'attempts' not in session:
         session['attempts'] = 0
-        return render_template("authLogin.html", message=f"Você ainda tem mais {session['attempts']} tentativas")
+
 
     message = "Insira seu usuário e senha"
 
@@ -100,15 +117,17 @@ def authLogin():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if username == MOCKED_USER and password == MOCKED_PASSWORD:
-            session.pop('attempts', None)  # Reseta as tentativas após sucesso
-            message = f"Bem-vindo {MOCKED_USER}"
+        if verify_login(username, password):
+            session['attempts'] = 0
+            return redirect(url_for("addUser"))
         else:
-            session['attempts'] += 1
+            session['attempts'] += 1  # Incrementando tentativas na sessão
+
             if session['attempts'] >= MAX_ATTEMPTS:
                 message = "Você excedeu o número de tentativas. Tente novamente mais tarde."
             else:
-                message = "Usuário ou senha não confere. Você ainda tem mais {session['attempts']} tentativas"
+                message = f"Usuário ou senha não confere. Você ainda tem mais {MAX_ATTEMPTS - session['attempts']} tentativas."
+
 
     return render_template("authLogin.html", message=message)
 

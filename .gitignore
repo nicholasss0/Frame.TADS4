@@ -4,3 +4,4 @@
 .idea/
 *.iml
 idea.md
+/__pycache__
