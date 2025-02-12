@@ -19,9 +19,7 @@ Este repositório tem como propósito principal:
 
 - **Flask**: Framework para desenvolvimento web em Python.  
 - **PyPI Libraries**: Ferramentas complementares para otimizar e expandir funcionalidades.  
-  - Exemplos: `Flask-WTF`, `Flask-Migrate`, `Flask-SQLAlchemy`, entre outros.  
-- **SQLAlchemy** (Planejado): ORM para gerenciamento de banco de dados relacional.  
-- Outras bibliotecas a serem exploradas com o avanço da matéria.
+  - Exemplos: `Flask-WTF`, `Flask-Migrate`, `Flask-SQLAlchemy`, entre outros. 
 
 ---
 
