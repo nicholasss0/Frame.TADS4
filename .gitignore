@@ -5,4 +5,5 @@
 *.iml
 idea.md
 /__pycache__
+.content/
 content.md
