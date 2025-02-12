@@ -46,15 +46,9 @@ Este repositório tem como propósito principal:
   Tecnologias utilizadas: HTML, FLASK-app e FLASK-router
 
 5. **Limitar Tentativas**
-  - Descrição: Limitar as tentativas de autenticação a 4 tentativas tentativas.
+  - Descrição: Limitar as tentativas de autenticação a 4 tentativas.
 
 ---
-
-## 📖 Próximos Passos
-
-- Implementar projetos com persistência de dados usando SQLAlchemy.  
-- Trabalhar em projetos mais avançados, integrando APIs e autenticação.  
-- Explorar boas práticas de arquitetura e deploy de aplicações Flask.
 
 
 

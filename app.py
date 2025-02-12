@@ -1,8 +1,11 @@
 from flask import Flask, redirect, render_template, request, session, url_for, jsonify
+from flask_cors import CORS
+
 
 from user import User, verify_login
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = "supersecretkey" 
 app.config["SESSION_PERMANENT"] = False
 
@@ -22,7 +25,6 @@ def generateTables():
         })
     return rows
 
-tables = generateTables()
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -60,6 +62,7 @@ def takePhoto():
 
 @app.route('/greatTable', methods = ["GET", "POST"])
 def greatTable():
+    tables = generateTables()
     return render_template("997lines.html", tables=tables)
 
 

@@ -46,11 +46,15 @@
 
 0. 
 
-    1. fazer, no código, todas as validações necessárias para que as senha e usuario sejam devidamente preenchiddos
-    2. tratar excessões para evitar que seja exibida a mensagem "method not allowed"
-    3. Garantir que usuário seja redirecionado e tentar autenticar novamente caso a senha e o user estejam incorretos
-    4. limitar em duas tentativas
-    5. Alterar todos os retornos possíveis, usadando dados formatados em JSON
+    1. fazer, no código, todas as validações necessárias para que as senha e usuario sejam devidamente preenchiddos feito
+
+    2. tratar excessões para evitar que seja exibida a mensagem "method not allowed" feito
+
+    3. Garantir que usuário seja redirecionado e tentar autenticar novamente caso a senha e o user estejam incorretos feito
+
+    4. limitar em duas tentativas feito
+ 
+    5. Alterar todos os retornos possíveis, usando dados formatados em JSON
 
 
 # Atividades aula 8:
