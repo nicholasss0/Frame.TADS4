@@ -43,6 +43,8 @@ def start():
             return redirect(url_for("authLogin"))
         if selection == "inputData":
             return redirect(url_for("inputData"))
+        if selection == "othersRep":
+            return redirect(url_for("othersRep"))
         else:
             return '''<script>
                     window.alert("faça sua escolha!")
@@ -64,7 +66,6 @@ def takePhoto():
 def greatTable():
     tables = generateTables()
     return render_template("997lines.html", tables=tables)
-
 
 @app.route('/edit/<int:id>', methods=['POST'])
 def edit(id):
@@ -89,6 +90,10 @@ def delete(id):
     tables = filtered_tables
 
     return redirect(url_for('greatTable'))
+
+@app.route('/othersRep')
+def othersRep():
+    return render_template("othersRep.html")
 
 
 @app.route('/addUser', methods=["GET", "POST"])
