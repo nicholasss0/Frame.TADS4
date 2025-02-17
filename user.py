@@ -9,7 +9,7 @@ class User:
         self.name = name
         self.email = email
         self.hash_password = generate_password_hash(password)
-        users_db[self.name] = self  # Armazena o próprio objeto User
+        users_db[self.name] = self 
 
     def verify_password(self, password):
         return check_password_hash(self.hash_password, password)
