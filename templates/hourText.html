@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel com textos data e hora</title>
+</head>
+<body>
+    <h1>Painel com textos</h1>
+    <form method="post">
+        <input type="text" placeholder="Insira o que quer dizer" name="text" />
+        <a href="{{ url_for('hourText') }}"></a>      
+    </form>
+
+    {% for text in texts %}
+
+    <div class="cell">{{ texts.text }}</div>
+    <div class="cell">{{ texts.date }}</div>
+
+    {% endfor %}
+</body>
+</html>

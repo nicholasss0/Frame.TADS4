@@ -1,7 +1,7 @@
 from flask import Flask, redirect, render_template, request, session, url_for, jsonify
 from flask_cors import CORS
 
-
+from text import Text, text_db
 from user import User, verify_login
 
 app = Flask(__name__)
@@ -45,12 +45,27 @@ def start():
             return redirect(url_for("inputData"))
         if selection == "othersRep":
             return redirect(url_for("othersRep"))
+        if selection == "hourText":
+            return redirect(url_for("hourText"))
         else:
             return '''<script>
                     window.alert("faça sua escolha!")
                 </script>'''
              
     return render_template("start.html" )
+
+
+@app.route('/hourText', methods=["GET", "POST"])
+def hourText():
+    if request.method == "POST":
+        text = request.form.get("text")
+        if text:
+            Text(text)  # Cria uma nova instância e armazena na lista
+
+    return render_template("hourText.html", texts=text_db)
+
+
+
 
 @app.route('/tagCanvas')
 def tagCanvas():
